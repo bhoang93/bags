@@ -9,8 +9,8 @@ public class Durance {
     }
 
     public String displayBagContents() {
-        var backpackContents = getContentsOfBackpack();
-        var bag1Contents = bag1.size() > 0 ? "Bag with no category: Leather\n" : "Bag with no category: empty\n";
+        var backpackContents = "Backpack: " + getContentsOfBag(backpack);
+        var bag1Contents = "Bag with no category: " + getContentsOfBag(bag1);
 
         return backpackContents + bag1Contents +
                 """
@@ -19,14 +19,16 @@ public class Durance {
                         """;
     }
 
-    private String getContentsOfBackpack() {
-        var string = new StringBuilder("Backpack: ");
+    private String getContentsOfBag(ArrayList<Item> bag) {
+        if (bag.isEmpty()) return "empty\n";
 
-        for (int i = 0; i < backpack.size(); i++) {
-            String itemName = backpack.get(i).name();
+        var string = new StringBuilder();
+
+        for (int i = 0; i < bag.size(); i++) {
+            String itemName = bag.get(i).name();
             string.append(itemName);
 
-            var notLastItem = i != backpack.size() - 1;
+            var notLastItem = i != bag.size() - 1;
             if (notLastItem) {
                 string.append(", ");
             }
