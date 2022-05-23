@@ -40,9 +40,9 @@ public class Durance {
     }
 
     public void organiseBags() {
-        if (backpack.size() == 9) {
-            bag1.add(backpack.get(8));
-            backpack.remove(8);
+        while(backpack.size() > 8) {
+            bag1.add(backpack.get(backpack.size() - 1));
+            backpack.remove(backpack.size() - 1);
         }
         backpack.sort((item1, item2) -> item1.name().compareToIgnoreCase(item2.name()));
     }
