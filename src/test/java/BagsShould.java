@@ -13,6 +13,7 @@ public class BagsShould {
                 Bag with no category: empty
                 Bag with no category: empty
                 Bag with no category: empty
+                Bag with no category: empty
                 """;
 
         assertEquals(expected, result);
@@ -26,6 +27,7 @@ public class BagsShould {
         String result = durance.displayBagContents();
         String expected = """
                 Backpack: Iron, Leather
+                Bag with no category: empty
                 Bag with no category: empty
                 Bag with no category: empty
                 Bag with no category: empty
@@ -43,6 +45,7 @@ public class BagsShould {
         String result = durance.displayBagContents();
         String expected = """
                 Backpack: Cherry Blossom, Iron, Leather
+                Bag with no category: empty
                 Bag with no category: empty
                 Bag with no category: empty
                 Bag with no category: empty
@@ -64,6 +67,7 @@ public class BagsShould {
         String result = durance.displayBagContents();
         String expected = """
                 Backpack: Cherry Blossom, Iron, Leather
+                Bag with no category: empty
                 Bag with no category: empty
                 Bag with no category: empty
                 Bag with no category: empty
@@ -92,6 +96,7 @@ public class BagsShould {
         String expected = """
                 Backpack: Leather, Leather, Leather, Leather, Leather, Leather, Leather, Leather
                 Bag with no category: Leather
+                Bag with no category: empty
                 Bag with no category: empty
                 Bag with no category: empty
                 """;

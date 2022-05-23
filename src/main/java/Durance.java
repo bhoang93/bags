@@ -3,6 +3,9 @@ import java.util.ArrayList;
 public class Durance {
     private final ArrayList<Item> backpack = new ArrayList<Item>();
     private ArrayList<Item> bag1 = new ArrayList<Item>();
+    private ArrayList<Item> bag2 = new ArrayList<Item>();
+    private ArrayList<Item> bag3 = new ArrayList<Item>();
+    private ArrayList<Item> bag4 = new ArrayList<Item>();
 
     public void addItem(Item item) {
         backpack.add(item);
@@ -11,12 +14,11 @@ public class Durance {
     public String displayBagContents() {
         var backpackContents = "Backpack: " + getContentsOfBag(backpack);
         var bag1Contents = "Bag with no category: " + getContentsOfBag(bag1);
+        var bag2Contents = "Bag with no category: " + getContentsOfBag(bag2);
+        var bag3Contents = "Bag with no category: " + getContentsOfBag(bag3);
+        var bag4Contents = "Bag with no category: " + getContentsOfBag(bag4);
 
-        return backpackContents + bag1Contents +
-                """
-                        Bag with no category: empty
-                        Bag with no category: empty
-                        """;
+        return backpackContents + bag1Contents + bag2Contents + bag3Contents + bag4Contents;
     }
 
     private String getContentsOfBag(ArrayList<Item> bag) {
