@@ -3,8 +3,15 @@ import java.util.ArrayList;
 public class Bag {
     public final Integer sizeLimit;
     private final ArrayList<Item> contents = new ArrayList<>();
+    private final String type;
 
     public Bag(Integer sizeLimit) {
+        this.type = "Bag with no category";
+        this.sizeLimit = sizeLimit;
+    }
+
+    public Bag(String type, Integer sizeLimit) {
+        this.type = type;
         this.sizeLimit = sizeLimit;
     }
 
@@ -42,5 +49,9 @@ public class Bag {
         var lastItem = contents.get(contents.size() - 1);
         contents.remove(lastItem);
         return lastItem;
+    }
+
+    public String type() {
+        return type;
     }
 }

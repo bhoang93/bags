@@ -1,29 +1,44 @@
+import java.util.ArrayList;
+
 public class Durance {
-    private final Bag backpack = new Bag(8);
-    private Bag bag1 = new Bag(4);
-    private Bag bag2 = new Bag(4);
-    private Bag bag3 = new Bag(4);
-    private Bag bag4 = new Bag(4);
+    private ArrayList<Bag> bags = new ArrayList<Bag>();
+
+    public Durance() {
+        Bag backpack = new Bag("Backpack", 8);
+        Bag bag1 = new Bag(4);
+        Bag bag2 = new Bag(4);
+        Bag bag3 = new Bag(4);
+        Bag bag4 = new Bag(4);
+
+        bags.add(backpack);
+        bags.add(bag1);
+        bags.add(bag2);
+        bags.add(bag3);
+        bags.add(bag4);
+    }
 
     public void addItem(Item item) {
-        backpack.add(item);
+        bags.get(0).add(item);
+
+        for (int i = 0; i < bags.size() - 1; i++) {
+            Bag firstBag = bags.get(i);
+            Bag secondBag = bags.get(i + 1);
+            moveContents(firstBag, secondBag);
+        }
     }
 
     public String displayBagContents() {
-        var backpackContents = "Backpack: " + backpack.getContentsOfBag();
-        var bag1Contents = "Bag with no category: " + bag1.getContentsOfBag();
-        var bag2Contents = "Bag with no category: " + bag2.getContentsOfBag();
-        var bag3Contents = "Bag with no category: " + bag3.getContentsOfBag();
-        var bag4Contents = "Bag with no category: " + bag4.getContentsOfBag();
+        var contentsString = new StringBuilder();
 
-        return backpackContents + bag1Contents + bag2Contents + bag3Contents + bag4Contents;
+        for (Bag bag : bags) {
+            contentsString.append(bag.type()).append(": ").append(bag.getContentsOfBag());
+        }
+
+        return contentsString.toString();
     }
 
     public void organiseBags() {
-        moveContents(backpack, bag1);
-        moveContents(bag1, bag2);
-
-        backpack.sort();
+        bags.get(0).sort();
     }
 
     private void moveContents(Bag firstBag, Bag secondBag) {
@@ -31,6 +46,4 @@ public class Durance {
             secondBag.add(firstBag.moveLastItem());
         }
     }
-
-
 }
