@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BagsShould {
     @Test
-    void name() {
+    void add_iron_to_the_backpack() {
         Durance durance = new Durance();
         durance.addItem(new Item("Iron", "Metal"));
         String result = durance.displayBagContents();
