@@ -1,9 +1,7 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class Durance {
-    private ArrayList<Item> backpack = new ArrayList<Item>();
+    private final ArrayList<Item> backpack = new ArrayList<Item>();
 
     public void addItem(Item item) {
         backpack.add(item);

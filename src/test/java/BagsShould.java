@@ -71,4 +71,31 @@ public class BagsShould {
 
         assertEquals(expected, result);
     }
+
+    @Test
+    void add_nine_items_and_have_eight_in_the_backpack_and_one_in_the_bag() {
+        Durance durance = new Durance();
+
+        durance.addItem(new Item("Leather", "Clothes"));
+        durance.addItem(new Item("Leather", "Clothes"));
+        durance.addItem(new Item("Leather", "Clothes"));
+        durance.addItem(new Item("Leather", "Clothes"));
+        durance.addItem(new Item("Leather", "Clothes"));
+        durance.addItem(new Item("Leather", "Clothes"));
+        durance.addItem(new Item("Leather", "Clothes"));
+        durance.addItem(new Item("Leather", "Clothes"));
+        durance.addItem(new Item("Leather", "Clothes"));
+
+        durance.organiseBags();
+
+        String result = durance.displayBagContents();
+        String expected = """
+                Backpack: Leather, Leather, Leather, Leather, Leather, Leather, Leather, Leather
+                Bag with no category: Leather
+                Bag with no category: empty
+                Bag with no category: empty
+                """;
+
+        assertEquals(expected, result);
+    }
 }
