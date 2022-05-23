@@ -5,10 +5,10 @@ public class Durance {
 
     public Durance() {
         Bag backpack = new Bag("Backpack", 8);
-        Bag bag1 = new Bag(4);
-        Bag bag2 = new Bag(4);
-        Bag bag3 = new Bag(4);
-        Bag bag4 = new Bag(4);
+        Bag bag1 = new Bag();
+        Bag bag2 = new Bag();
+        Bag bag3 = new Bag();
+        Bag bag4 = new Bag();
 
         bags.add(backpack);
         bags.add(bag1);

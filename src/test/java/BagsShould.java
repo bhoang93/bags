@@ -169,7 +169,7 @@ public class BagsShould {
     @Test
     void move_iron_to_metal_bag_when_organised() {
         var metalBag = new Bag("Metal", 4);
-        var regularBag = new Bag(4);
+        var regularBag = new Bag();
         Durance durance = new Durance(metalBag, regularBag, regularBag, regularBag);
 
         durance.addItem(new Item("Iron", "Metal"));

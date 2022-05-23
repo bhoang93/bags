@@ -5,9 +5,9 @@ public class Bag {
     private final ArrayList<Item> contents = new ArrayList<>();
     private final String type;
 
-    public Bag(Integer sizeLimit) {
+    public Bag() {
         this.type = "Bag with no category";
-        this.sizeLimit = sizeLimit;
+        this.sizeLimit = 4;
     }
 
     public Bag(String type, Integer sizeLimit) {
