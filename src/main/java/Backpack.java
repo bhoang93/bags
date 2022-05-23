@@ -10,4 +10,8 @@ public class Backpack {
     public Boolean contains(Item item) {
         return contents.contains(item);
     }
+
+    public ArrayList<Item> getContents() {
+        return contents;
+    }
 }
