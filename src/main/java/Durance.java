@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Durance {
-    private Backpack backpack = new Backpack();
+    private ArrayList<Item> backpack = new ArrayList<Item>();
 
     public void addItem(Item item) {
         backpack.add(item);
@@ -20,17 +22,21 @@ public class Durance {
 
     private String getContentsOfBackpack() {
         var string = new StringBuilder("Backpack: ");
-        ArrayList<Item> contents = backpack.getContents();
-        for (int i = 0; i < contents.size(); i++) {
-            String itemName = contents.get(i).name();
+
+        for (int i = 0; i < backpack.size(); i++) {
+            String itemName = backpack.get(i).name();
             string.append(itemName);
 
-            var notLastItem = i != contents.size() - 1;
+            var notLastItem = i != backpack.size() - 1;
             if (notLastItem) {
                 string.append(", ");
             }
         }
         string.append("\n");
         return string.toString();
+    }
+
+    public void organiseBags() {
+        backpack.sort((item1, item2) -> item1.name().compareToIgnoreCase(item2.name()));
     }
 }
