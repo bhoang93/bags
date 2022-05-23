@@ -4,7 +4,7 @@ public class Durance {
     private ArrayList<Bag> bags = new ArrayList<>();
 
     public Durance() {
-        Bag backpack = new Bag("Backpack", 8);
+        Bag backpack = new Backpack();
         Bag bag1 = new Bag();
         Bag bag2 = new Bag();
         Bag bag3 = new Bag();
@@ -18,7 +18,7 @@ public class Durance {
     }
 
     public Durance(Bag firstBag, Bag secondBag, Bag thirdBag, Bag fourthBag) {
-        Bag backpack = new Bag("Backpack", 8);
+        Backpack backpack = new Backpack();
 
         bags.add(backpack);
         bags.add(firstBag);

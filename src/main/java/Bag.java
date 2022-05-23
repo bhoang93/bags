@@ -1,18 +1,16 @@
 import java.util.ArrayList;
 
 public class Bag {
-    public final Integer sizeLimit;
+    public Integer sizeLimit = 4;
     private final ArrayList<Item> contents = new ArrayList<>();
-    private final String type;
+    String type;
 
     public Bag() {
         this.type = "Bag with no category";
-        this.sizeLimit = 4;
     }
 
-    public Bag(String type, Integer sizeLimit) {
+    public Bag(String type) {
         this.type = type;
-        this.sizeLimit = sizeLimit;
     }
 
     public Integer size() {
