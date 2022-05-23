@@ -46,6 +46,13 @@ public class Durance {
             bag1.add(backpack.get(lastIndex));
             backpack.remove(lastIndex);
         }
+
+        while(bag1.size() > 4) {
+            var lastIndex = bag1.size() - 1;
+
+            bag2.add(bag1.get(lastIndex));
+            bag1.remove(lastIndex);
+        }
         backpack.sort((item1, item2) -> item1.name().compareToIgnoreCase(item2.name()));
     }
 }
