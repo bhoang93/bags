@@ -38,7 +38,9 @@ public class Durance {
     }
 
     public void organiseBags() {
-        bags.get(0).sort();
+        for (Bag bag: bags) {
+            bag.sort();
+        }
     }
 
     private void moveExcessItems(Bag firstBag, Bag secondBag) {

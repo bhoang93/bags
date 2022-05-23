@@ -150,7 +150,7 @@ public class BagsShould {
        durance.addItem(new Item("Leather", "Clothes"));
         durance.addItem(new Item("Leather", "Clothes"));
         durance.addItem(new Item("Leather", "Clothes"));
-        durance.addItem(new Item("Cooper", "Metal"));
+        durance.addItem(new Item("Copper", "Metal"));
 
         durance.organiseBags();
 
