@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Durance {
     private Backpack backpack = new Backpack();
 
@@ -8,19 +6,13 @@ public class Durance {
     };
 
     public String displayBagContents() {
-        if (backpack.contains(new Item("Leather", "Clothes"))) {
-            return """
-                Backpack: Iron, Leather
-                Bag with no category: empty
-                Bag with no category: empty
-                Bag with no category: empty
-                """;
-        }
-        return """
-                Backpack: Iron
-                Bag with no category: empty
-                Bag with no category: empty
-                Bag with no category: empty
-                """;
-    }
+        var backpackContents = "Backpack: " + (backpack.contains(new Item("Leather", "Clothes")) ? "Iron, Leather\n" : "Iron\n");
+
+        return backpackContents +
+        """
+        Bag with no category: empty
+        Bag with no category: empty
+        Bag with no category: empty
+        """;
+}
 }
