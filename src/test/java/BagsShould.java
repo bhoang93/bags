@@ -134,7 +134,7 @@ public class BagsShould {
     }
 
     @Test
-    void add_13_items_and_have_8_in_the_backpack_and_4_in_the_first_bag_and_1_in_the_second_bag() {
+    void add_13_items_and_have_right_order_in_third_bag() {
         Durance durance = new Durance();
 
         durance.addItem(new Item("Leather", "Clothes"));
@@ -150,6 +150,7 @@ public class BagsShould {
        durance.addItem(new Item("Leather", "Clothes"));
         durance.addItem(new Item("Leather", "Clothes"));
         durance.addItem(new Item("Leather", "Clothes"));
+        durance.addItem(new Item("Cooper", "Metal"));
 
         durance.organiseBags();
 
@@ -157,7 +158,7 @@ public class BagsShould {
         String expected = """
                 Backpack: Leather, Leather, Leather, Leather, Leather, Leather, Leather, Leather
                 Bag with no category: Leather, Leather, Leather, Leather
-                Bag with no category: Leather
+                Bag with no category: Copper, Leather
                 Bag with no category: empty
                 Bag with no category: empty
                 """;
