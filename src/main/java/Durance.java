@@ -17,6 +17,16 @@ public class Durance {
         bags.add(bag4);
     }
 
+    public Durance(Bag firstBag, Bag secondBag, Bag thirdBag, Bag fourthBag) {
+        Bag backpack = new Bag("Backpack", 8);
+
+        bags.add(backpack);
+        bags.add(firstBag);
+        bags.add(secondBag);
+        bags.add(thirdBag);
+        bags.add(fourthBag);
+    }
+
     public void addItem(Item item) {
         bags.get(0).add(item);
 

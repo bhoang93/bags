@@ -165,4 +165,26 @@ public class BagsShould {
 
         assertEquals(expected, result);
     }
+
+    @Test
+    void move_iron_to_metal_bag_when_organised() {
+        var metalBag = new Bag("Metal", 4);
+        var regularBag = new Bag(4);
+        Durance durance = new Durance(metalBag, regularBag, regularBag, regularBag);
+
+        durance.addItem(new Item("Iron", "Metal"));
+
+        durance.organiseBags();
+
+        String result = durance.displayBagContents();
+        String expected = """
+                Backpack: empty
+                Metal bag: Iron
+                Bag with no category: empty
+                Bag with no category: empty
+                Bag with no category: empty
+                """;
+
+        assertEquals(expected, result);
+    }
 }
