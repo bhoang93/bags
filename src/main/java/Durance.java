@@ -49,6 +49,9 @@ public class Durance {
 
     public void organiseBags() {
         for (Bag bag: bags) {
+            if (bag.type().equals("Metal")) {
+                bag.add(bags.get(0).moveLastItem());
+            }
             bag.sort();
         }
     }

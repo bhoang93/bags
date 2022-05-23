@@ -179,7 +179,7 @@ public class BagsShould {
         String result = durance.displayBagContents();
         String expected = """
                 Backpack: empty
-                Metal bag: Iron
+                Metal: Iron
                 Bag with no category: empty
                 Bag with no category: empty
                 Bag with no category: empty
