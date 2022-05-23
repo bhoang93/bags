@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Durance {
-    private ArrayList<Bag> bags = new ArrayList<Bag>();
+    private ArrayList<Bag> bags = new ArrayList<>();
 
     public Durance() {
         Bag backpack = new Bag("Backpack", 8);
@@ -23,25 +23,25 @@ public class Durance {
         for (int i = 0; i < bags.size() - 1; i++) {
             Bag firstBag = bags.get(i);
             Bag secondBag = bags.get(i + 1);
-            moveContents(firstBag, secondBag);
+            moveExcessItems(firstBag, secondBag);
         }
     }
 
     public String displayBagContents() {
-        var contentsString = new StringBuilder();
+        var bagsContents = new StringBuilder();
 
         for (Bag bag : bags) {
-            contentsString.append(bag.type()).append(": ").append(bag.getContentsOfBag());
+            bagsContents.append(bag.type()).append(": ").append(bag.getContentsOfBag());
         }
 
-        return contentsString.toString();
+        return bagsContents.toString();
     }
 
     public void organiseBags() {
         bags.get(0).sort();
     }
 
-    private void moveContents(Bag firstBag, Bag secondBag) {
+    private void moveExcessItems(Bag firstBag, Bag secondBag) {
         while (firstBag.size() > firstBag.sizeLimit) {
             secondBag.add(firstBag.moveLastItem());
         }
