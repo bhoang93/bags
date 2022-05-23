@@ -40,19 +40,20 @@ public class Durance {
     }
 
     public void organiseBags() {
-        while(backpack.size() > 8) {
-            var lastIndex = backpack.size() - 1;
+        moveContents(backpack, bag1, 8);
+        moveContents(bag1, bag2, 4);
 
-            bag1.add(backpack.get(lastIndex));
-            backpack.remove(lastIndex);
-        }
-
-        while(bag1.size() > 4) {
-            var lastIndex = bag1.size() - 1;
-
-            bag2.add(bag1.get(lastIndex));
-            bag1.remove(lastIndex);
-        }
         backpack.sort((item1, item2) -> item1.name().compareToIgnoreCase(item2.name()));
     }
+
+    private void moveContents(ArrayList<Item> firstBag, ArrayList<Item> secondBag, Integer limit) {
+        while (firstBag.size() > limit) {
+            var lastIndex = firstBag.size() - 1;
+
+            secondBag.add(firstBag.get(lastIndex));
+            firstBag.remove(lastIndex);
+        }
+    }
+
+
 }
