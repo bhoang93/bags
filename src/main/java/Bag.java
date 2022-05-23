@@ -3,13 +3,13 @@ import java.util.ArrayList;
 public class Bag {
     public Integer sizeLimit = 4;
     private final ArrayList<Item> contents = new ArrayList<>();
-    String type;
+    Category type;
 
     public Bag() {
-        this.type = "Bag with no category";
+        this.type = Category.NONE;
     }
 
-    public Bag(String type) {
+    public Bag(Category type) {
         this.type = type;
     }
 
@@ -50,6 +50,8 @@ public class Bag {
     }
 
     public String type() {
-        return type;
+        if (type == Category.METAL) return "Metal";
+        if (sizeLimit == 8) return "Backpack";
+        return "Bag with no category";
     }
 }

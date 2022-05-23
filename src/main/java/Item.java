@@ -1,2 +1,2 @@
-public record Item(String name, String category) {
+public record Item(String name, Category category) {
 }
