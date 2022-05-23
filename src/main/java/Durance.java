@@ -41,8 +41,10 @@ public class Durance {
 
     public void organiseBags() {
         while(backpack.size() > 8) {
-            bag1.add(backpack.get(backpack.size() - 1));
-            backpack.remove(backpack.size() - 1);
+            var lastIndex = backpack.size() - 1;
+
+            bag1.add(backpack.get(lastIndex));
+            backpack.remove(lastIndex);
         }
         backpack.sort((item1, item2) -> item1.name().compareToIgnoreCase(item2.name()));
     }
