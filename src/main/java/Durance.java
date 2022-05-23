@@ -22,9 +22,11 @@ public class Durance {
         var string = new StringBuilder("Backpack: ");
         ArrayList<Item> contents = backpack.getContents();
         for (int i = 0; i < contents.size(); i++) {
-            Item item = contents.get(i);
-            string.append(item.name());
-            if (i != contents.size() - 1) {
+            String itemName = contents.get(i).name();
+            string.append(itemName);
+
+            var notLastItem = i != contents.size() - 1;
+            if (notLastItem) {
                 string.append(", ");
             }
         }
