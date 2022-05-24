@@ -57,11 +57,9 @@ public class Durance {
                 var matchingItems = firstBag.getMatchingItems(secondBag.category);
                 secondBag.addMatchingItems(matchingItems);
             }
-        }
 
-        for (Bag bag : bags) {
-            bag.sortItemsInAlphabeticalOrder();
-            moveExcessItems(bag, bags.get(0));
+            firstBag.sortItemsInAlphabeticalOrder();
+            moveExcessItems(firstBag, bags.get(0));
         }
 
         bags.get(0).sortItemsInAlphabeticalOrder();
