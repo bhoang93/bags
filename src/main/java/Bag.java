@@ -50,8 +50,12 @@ public class Bag {
     }
 
     public String bagName() {
-        if (type == Category.METAL) return "Metal";
+        if (type != Category.NONE) return formattedTypeString();
         if (sizeLimit == 8) return "Backpack";
         return "Bag with no category";
+    }
+
+    private String formattedTypeString() {
+        return type.toString().charAt(0) + type.toString().substring(1).toLowerCase();
     }
 }

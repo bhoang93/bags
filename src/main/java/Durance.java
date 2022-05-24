@@ -49,7 +49,7 @@ public class Durance {
 
     public void organiseBags() {
         for (Bag bag: bags) {
-            if (bag.bagName().equals("Metal")) {
+            if (bag.type != Category.NONE) {
                 bag.add(bags.get(0).moveLastItem());
             }
             bag.sort();
