@@ -1,16 +1,17 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Bag {
     public Integer sizeLimit = 4;
     private final ArrayList<Item> contents = new ArrayList<>();
-    Category type;
+    Category category;
 
     public Bag() {
-        this.type = Category.NONE;
+        this.category = Category.NONE;
     }
 
-    public Bag(Category type) {
-        this.type = type;
+    public Bag(Category category) {
+        this.category = category;
     }
 
     public Integer size() {
@@ -35,7 +36,7 @@ public class Bag {
         return string.toString();
     }
 
-    public void sort() {
+    public void sortItemsInAlphabeticalOrder() {
         contents.sort((item1, item2) -> item1.name().compareToIgnoreCase(item2.name()));
     }
 
@@ -43,19 +44,29 @@ public class Bag {
         contents.add(item);
     }
 
-    public Item moveLastItem() {
-        var lastItem = contents.get(contents.size() - 1);
+    public Item moveItemAt(Integer index) {
+        var lastItem = contents.get(index);
         contents.remove(lastItem);
         return lastItem;
     }
 
     public String bagName() {
-        if (type != Category.NONE) return formattedTypeString();
+        if (category != Category.NONE) return formattedTypeString();
         if (sizeLimit == 8) return "Backpack";
         return "Bag with no category";
     }
 
     private String formattedTypeString() {
-        return type.toString().charAt(0) + type.toString().substring(1).toLowerCase();
+        return category.toString().charAt(0) + category.toString().substring(1).toLowerCase();
+    }
+
+    public List<Item> getMatchingItems(Category category) {
+        var matchingItems = contents.stream().filter(item -> item.category() == category).toList();
+        contents.removeAll(matchingItems);
+        return matchingItems;
+    }
+
+    public void addMatchingItems(List<Item> matchingItems) {
+        contents.addAll(matchingItems);
     }
 }

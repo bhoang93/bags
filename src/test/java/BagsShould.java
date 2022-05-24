@@ -217,7 +217,7 @@ public class BagsShould {
         Durance durance = new Durance(herbsBag, regularBag, regularBag, regularBag);
 
         durance.addItem(new Item("Iron", Category.METAL));
-        durance.addItem(new Item("Marigold", Category.METAL));
+        durance.addItem(new Item("Marigold", Category.HERBS));
         durance.addItem(new Item("Marigold", Category.HERBS));
 
         durance.organiseBags();
