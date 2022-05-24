@@ -49,13 +49,12 @@ public class Durance {
         for (int i = 0; i < bags.size() - 1; i++) {
             Bag firstBag = bags.get(i);
             Bag secondBag = bags.get(i + 1);
+
             if (firstBag.category != Category.NONE) {
-                var nonMatchingItems = firstBag.getNonMatchingItems();
-                bags.get(0).addMatchingItems(nonMatchingItems);
+                moveNonMatchingItemsToBackpack(firstBag);
             }
             if (secondBag.category != Category.NONE) {
-                var matchingItems = firstBag.getMatchingItems(secondBag.category);
-                secondBag.addMatchingItems(matchingItems);
+                moveMatchingItemsToNewBag(firstBag, secondBag);
             }
 
             firstBag.sortItemsInAlphabeticalOrder();
@@ -63,6 +62,16 @@ public class Durance {
         }
 
         bags.get(0).sortItemsInAlphabeticalOrder();
+    }
+
+    private void moveMatchingItemsToNewBag(Bag firstBag, Bag secondBag) {
+        var matchingItems = firstBag.getMatchingItems(secondBag.category);
+        secondBag.addMatchingItems(matchingItems);
+    }
+
+    private void moveNonMatchingItemsToBackpack(Bag bag) {
+        var nonMatchingItems = bag.getNonMatchingItems();
+        bags.get(0).addMatchingItems(nonMatchingItems);
     }
 
     private void moveExcessItems(Bag firstBag, Bag secondBag) {
