@@ -187,4 +187,26 @@ public class BagsShould {
 
         assertEquals(expected, result);
     }
+
+    @Test
+    void move_marigold_to_herbs_bag_when_organised() {
+        var herbsBag = new Bag(Category.HERBS);
+        var regularBag = new Bag();
+        Durance durance = new Durance(herbsBag, regularBag, regularBag, regularBag);
+
+        durance.addItem(new Item("Marigold", Category.HERBS));
+
+        durance.organiseBags();
+
+        String result = durance.displayBagContents();
+        String expected = """
+                Backpack: empty
+                Herbs: Marigold
+                Bag with no category: empty
+                Bag with no category: empty
+                Bag with no category: empty
+                """;
+
+        assertEquals(expected, result);
+    }
 }
