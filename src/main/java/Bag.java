@@ -49,7 +49,7 @@ public class Bag {
         return lastItem;
     }
 
-    public String type() {
+    public String bagName() {
         if (type == Category.METAL) return "Metal";
         if (sizeLimit == 8) return "Backpack";
         return "Bag with no category";

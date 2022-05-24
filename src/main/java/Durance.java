@@ -41,7 +41,7 @@ public class Durance {
         var bagsContents = new StringBuilder();
 
         for (Bag bag : bags) {
-            bagsContents.append(bag.type()).append(": ").append(bag.getContentsOfBag());
+            bagsContents.append(bag.bagName()).append(": ").append(bag.getContentsOfBag());
         }
 
         return bagsContents.toString();
@@ -49,7 +49,7 @@ public class Durance {
 
     public void organiseBags() {
         for (Bag bag: bags) {
-            if (bag.type().equals("Metal")) {
+            if (bag.bagName().equals("Metal")) {
                 bag.add(bags.get(0).moveLastItem());
             }
             bag.sort();
