@@ -39,11 +39,9 @@ public class Durance {
 
     public String displayBagContents() {
         var bagsContents = new StringBuilder();
-
         for (Bag bag : bags) {
             bagsContents.append(bag.bagName()).append(": ").append(bag.getContentsOfBag());
         }
-
         return bagsContents.toString();
     }
 
@@ -51,12 +49,22 @@ public class Durance {
         for (int i = 0; i < bags.size() - 1; i++) {
             Bag firstBag = bags.get(i);
             Bag secondBag = bags.get(i + 1);
+            if (firstBag.category != Category.NONE) {
+                var nonMatchingItems = firstBag.getNonMatchingItems();
+                bags.get(0).addMatchingItems(nonMatchingItems);
+            }
             if (secondBag.category != Category.NONE) {
                 var matchingItems = firstBag.getMatchingItems(secondBag.category);
                 secondBag.addMatchingItems(matchingItems);
             }
-            firstBag.sortItemsInAlphabeticalOrder();
         }
+
+        for (Bag bag : bags) {
+            bag.sortItemsInAlphabeticalOrder();
+            moveExcessItems(bag, bags.get(0));
+        }
+
+        bags.get(0).sortItemsInAlphabeticalOrder();
     }
 
     private void moveExcessItems(Bag firstBag, Bag secondBag) {

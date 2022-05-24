@@ -46,7 +46,7 @@ public class Bag {
 
     public Item moveItemAt(Integer index) {
         var lastItem = contents.get(index);
-        contents.remove(lastItem);
+        contents.remove((int) index);
         return lastItem;
     }
 
@@ -68,5 +68,11 @@ public class Bag {
 
     public void addMatchingItems(List<Item> matchingItems) {
         contents.addAll(matchingItems);
+    }
+
+    public List<Item> getNonMatchingItems() {
+        var nonMatchingItems = contents.stream().filter(item -> item.category() != this.category).toList();
+        contents.removeAll(nonMatchingItems);
+        return nonMatchingItems;
     }
 }
